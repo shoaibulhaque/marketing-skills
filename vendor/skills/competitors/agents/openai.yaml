@@ -1,5 +1,5 @@
 interface:
-  display_name: "Competitors"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Competitor Comparisons"
+  short_description: "Create fair comparison and alternative pages"
 policy:
   allow_implicit_invocation: false

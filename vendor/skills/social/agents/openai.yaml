@@ -1,5 +1,5 @@
 interface:
-  display_name: "Social"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Social Content"
+  short_description: "Plan and refine organic social content"
 policy:
   allow_implicit_invocation: false

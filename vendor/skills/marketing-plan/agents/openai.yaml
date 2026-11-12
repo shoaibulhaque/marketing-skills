@@ -1,5 +1,5 @@
 interface:
-  display_name: "Marketing Plan"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Marketing Planning"
+  short_description: "Build evidence-based go-to-market plans"
 policy:
   allow_implicit_invocation: false

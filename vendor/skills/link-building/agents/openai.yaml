@@ -1,5 +1,5 @@
 interface:
   display_name: "Link Building"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Earn relevant backlinks and editorial mentions"
 policy:
   allow_implicit_invocation: false

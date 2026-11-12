@@ -1,5 +1,5 @@
 interface:
-  display_name: "Reverse Engineer Marketing"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Marketing Teardowns"
+  short_description: "Analyze competitor growth and distribution"
 policy:
   allow_implicit_invocation: false

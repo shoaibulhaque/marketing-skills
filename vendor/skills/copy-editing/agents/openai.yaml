@@ -1,5 +1,5 @@
 interface:
   display_name: "Copy Editing"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Improve clarity, voice, and persuasiveness"
 policy:
   allow_implicit_invocation: false

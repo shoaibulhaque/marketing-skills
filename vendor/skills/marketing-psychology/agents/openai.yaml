@@ -1,5 +1,5 @@
 interface:
   display_name: "Marketing Psychology"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Apply behavioral principles responsibly"
 policy:
   allow_implicit_invocation: false

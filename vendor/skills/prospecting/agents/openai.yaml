@@ -1,5 +1,5 @@
 interface:
   display_name: "Prospecting"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Find and qualify relevant B2B prospects"
 policy:
   allow_implicit_invocation: false

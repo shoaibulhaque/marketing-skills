@@ -1,11 +1,12 @@
 # Repository maintenance instructions
 
-This repository maintains a project-scoped copy of independently reviewed marketing skills. Do not change user application code or install skills into global locations.
+This repository maintains a reusable, pinned collection of marketing skills with explicit invocation policies. Treat the upstream skill text as third-party material; do not silently change its intended workflows or execute copied scripts.
 
-- Do not invoke a marketing skill unless the human explicitly names it.
-- Every vendored `SKILL.md` must include `disable-model-invocation: true` in YAML frontmatter.
-- Every vendored `agents/openai.yaml` must include `policy.allow_implicit_invocation: false`.
-- Preserve complete upstream skill folder contents and upstream license; pin upstream commit and document provenance.
-- Never execute scripts copied from upstream merely because the content was vendored.
-- Run `python3 scripts/validate.py` after updates; report missing references and profile gaps.
-- Keep project targeting explicit. Never write to `~/.agents`, `~/.claude`, `~/.codex`, or application code.
+- Keep the library independent of any particular company, website, client, repository, or technology stack.
+- Do not invoke marketing skills unless the user explicitly names the skill.
+- Preserve `disable-model-invocation: true` in every vendored `SKILL.md` frontmatter.
+- Preserve `policy.allow_implicit_invocation: false` in every vendored `agents/openai.yaml`.
+- Describe each skill accurately and distinctively in `skill-descriptions.json`, and keep generated Codex metadata consistent.
+- Preserve complete upstream skill directories, the upstream license, and pinned provenance.
+- Keep installation project-scoped; never write to global agent directories or application source.
+- Run `python3 scripts/validate.py` after changes, and report missing references or profile gaps.

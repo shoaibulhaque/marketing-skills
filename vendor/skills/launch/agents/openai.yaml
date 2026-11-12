@@ -1,5 +1,5 @@
 interface:
-  display_name: "Launch"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Launch Planning"
+  short_description: "Plan launches, announcements, and distribution"
 policy:
   allow_implicit_invocation: false

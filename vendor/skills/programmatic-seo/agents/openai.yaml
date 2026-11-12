@@ -1,5 +1,5 @@
 interface:
-  display_name: "Programmatic Seo"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Programmatic SEO"
+  short_description: "Plan scalable, useful search landing pages"
 policy:
   allow_implicit_invocation: false

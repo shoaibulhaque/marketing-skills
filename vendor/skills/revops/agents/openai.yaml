@@ -1,5 +1,5 @@
 interface:
-  display_name: "Revops"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Revenue Operations"
+  short_description: "Define lead lifecycle and sales handoffs"
 policy:
   allow_implicit_invocation: false

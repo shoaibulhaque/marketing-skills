@@ -1,5 +1,5 @@
 interface:
   display_name: "Customer Research"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Study customer needs, language, and behavior"
 policy:
   allow_implicit_invocation: false

@@ -1,5 +1,5 @@
 interface:
   display_name: "Public Relations"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Develop credible stories and media outreach"
 policy:
   allow_implicit_invocation: false

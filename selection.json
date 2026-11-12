@@ -1,58 +1,13 @@
 {
-  "project": "Steeric Marketing Skills",
+  "project": "Marketing Skills — Manual-Only Toolkit",
   "source": {
     "repository": "https://github.com/coreyhaines31/marketingskills",
     "commit": "1f837447b20bb6f0e72d87b80ece1c221c362c7d",
     "license": "MIT"
   },
   "profiles": {
-    "steeric": {
-      "description": "40 core agency marketing skills, including SEO and closely related disciplines",
-      "skills": [
-        "ab-testing",
-        "ai-seo",
-        "analytics",
-        "attribution",
-        "co-marketing",
-        "cold-email",
-        "competitor-profiling",
-        "competitors",
-        "content-strategy",
-        "conversion-tracking",
-        "copy-editing",
-        "copywriting",
-        "cro",
-        "customer-research",
-        "directory-submissions",
-        "emails",
-        "free-tools",
-        "launch",
-        "lead-magnets",
-        "link-building",
-        "marketing-ideas",
-        "marketing-loops",
-        "marketing-plan",
-        "marketing-psychology",
-        "offers",
-        "popups",
-        "pricing",
-        "product-marketing",
-        "programmatic-seo",
-        "prospecting",
-        "public-relations",
-        "referrals",
-        "reverse-engineer-marketing",
-        "revops",
-        "sales-enablement",
-        "schema",
-        "seo-audit",
-        "signup",
-        "site-architecture",
-        "social"
-      ]
-    },
     "full": {
-      "description": "All 53 upstream skills with manual-only policies",
+      "description": "Complete upstream marketing skill collection with manual-only invocation",
       "skills": [
         "ab-testing",
         "ad-creative",
@@ -108,6 +63,51 @@
         "social",
         "video"
       ]
+    },
+    "core": {
+      "description": "40 essential skills for SEO, content, conversion, research, measurement, and growth",
+      "skills": [
+        "ab-testing",
+        "ai-seo",
+        "analytics",
+        "attribution",
+        "co-marketing",
+        "cold-email",
+        "competitor-profiling",
+        "competitors",
+        "content-strategy",
+        "conversion-tracking",
+        "copy-editing",
+        "copywriting",
+        "cro",
+        "customer-research",
+        "directory-submissions",
+        "emails",
+        "free-tools",
+        "launch",
+        "lead-magnets",
+        "link-building",
+        "marketing-ideas",
+        "marketing-loops",
+        "marketing-plan",
+        "marketing-psychology",
+        "offers",
+        "popups",
+        "pricing",
+        "product-marketing",
+        "programmatic-seo",
+        "prospecting",
+        "public-relations",
+        "referrals",
+        "reverse-engineer-marketing",
+        "revops",
+        "sales-enablement",
+        "schema",
+        "seo-audit",
+        "signup",
+        "site-architecture",
+        "social"
+      ]
     }
   },
   "seo_audit_related": [
@@ -119,5 +119,5 @@
     "cro",
     "analytics"
   ],
-  "default_profile": "steeric"
+  "default_profile": "core"
 }

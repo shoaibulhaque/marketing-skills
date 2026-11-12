@@ -14,8 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--target', required=True, type=Path, help='Steeric website repository root')
-    parser.add_argument('--profile', choices=['steeric', 'full'], default='steeric')
+    parser.add_argument('--target', required=True, type=Path, help='Destination Git repository root')
+    parser.add_argument('--profile', choices=['core', 'full'], default='core')
     parser.add_argument('--apply', action='store_true', help='Actually install (otherwise only preview)')
     args = parser.parse_args()
 
@@ -23,7 +23,7 @@ def main() -> int:
     if not target.is_dir() or not (target / '.git').exists():
         parser.error(f'--target must be an existing Git repository root: {target}')
     if target == ROOT:
-        parser.error('Target must be Steeric website, not this skills repository')
+        parser.error('Target must be an application repository, not this skills repository')
 
     selection = json.loads((ROOT / 'selection.json').read_text())
     skills = selection['profiles'][args.profile]['skills']

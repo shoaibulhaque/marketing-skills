@@ -1,5 +1,5 @@
 interface:
-  display_name: "Emails"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Lifecycle Email"
+  short_description: "Plan and refine automated email sequences"
 policy:
   allow_implicit_invocation: false

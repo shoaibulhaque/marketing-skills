@@ -1,5 +1,5 @@
 interface:
   display_name: "Pricing"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Develop value-based pricing and packaging"
 policy:
   allow_implicit_invocation: false

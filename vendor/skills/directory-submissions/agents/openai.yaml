@@ -1,5 +1,5 @@
 interface:
   display_name: "Directory Submissions"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Choose relevant directories and submit listings"
 policy:
   allow_implicit_invocation: false

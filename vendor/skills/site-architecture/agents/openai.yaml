@@ -1,5 +1,5 @@
 interface:
   display_name: "Site Architecture"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Plan navigation, URLs, and internal linking"
 policy:
   allow_implicit_invocation: false

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Schema"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Structured Data"
+  short_description: "Implement and validate JSON-LD schema markup"
 policy:
   allow_implicit_invocation: false

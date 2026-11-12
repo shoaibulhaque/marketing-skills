@@ -1,5 +1,5 @@
 interface:
   display_name: "Sales Enablement"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Create evidence-based sales support materials"
 policy:
   allow_implicit_invocation: false

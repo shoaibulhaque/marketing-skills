@@ -36,28 +36,36 @@ def patch_claude_frontmatter(path: Path) -> None:
     path.write_text(content, encoding='utf-8')
 
 
-def patch_codex_metadata(path: Path, name: str) -> None:
+def patch_codex_metadata(path: Path, name: str, descriptions: dict) -> None:
+    """Set concise skill-picker descriptions and prevent implicit Codex invocation.
+
+    Keep any additional upstream metadata rather than replacing the whole file.
+    """
+    info = descriptions[name]
     path.parent.mkdir(parents=True, exist_ok=True)
-    if not path.exists():
-        label = name.replace('-', ' ').title()
-        path.write_text(
-            f'interface:\n  display_name: "{label}"\n'
-            '  short_description: "Manual-only Steeric marketing skill"\n'
-            'policy:\n  allow_implicit_invocation: false\n', encoding='utf-8')
-        return
-    src = path.read_text(encoding='utf-8')
-    pattern = r'(?m)^(policy:\s*\n)((?:[ \t]+[^\n]*\n|\s*\n)*)'
-    m = re.search(pattern, src)
-    if m:
-        policy_body = m.group(2)
-        if re.search(r'(?m)^\s+allow_implicit_invocation\s*:', policy_body):
-            updated = re.sub(r'(?m)^(\s+allow_implicit_invocation\s*:)\s*[^\n]*',
-                             r'\g<1> false', policy_body)
-        else:
-            updated = '  allow_implicit_invocation: false\n' + policy_body
-        src = src[:m.start(2)] + updated + src[m.end(2):]
+    src = path.read_text(encoding='utf-8') if path.exists() else ''
+    display = json.dumps(info['display_name'], ensure_ascii=False)
+    description = json.dumps(info['short_description'], ensure_ascii=False)
+
+    if re.search(r'(?m)^interface:\s*$', src):
+        for field, value in [('display_name', display), ('short_description', description)]:
+            key_pattern = rf'(?m)^  {field}:.*$'
+            if re.search(key_pattern, src):
+                src = re.sub(key_pattern, lambda _: f'  {field}: {value}', src)
+            else:
+                src = re.sub(r'(?m)^interface:\s*$', lambda m: m.group() + f'\n  {field}: {value}', src, count=1)
     else:
-        src = src.rstrip() + '\n\npolicy:\n  allow_implicit_invocation: false\n'
+        src = (f'interface:\n  display_name: {display}\n'
+               f'  short_description: {description}\n' + src)
+
+    if re.search(r'(?m)^policy:\s*$', src):
+        if re.search(r'(?m)^  allow_implicit_invocation:', src):
+            src = re.sub(r'(?m)^  allow_implicit_invocation:.*$',
+                         '  allow_implicit_invocation: false', src)
+        else:
+            src = re.sub(r'(?m)^policy:\s*$', 'policy:\n  allow_implicit_invocation: false', src, count=1)
+    else:
+        src = src.rstrip() + '\npolicy:\n  allow_implicit_invocation: false\n'
     path.write_text(src, encoding='utf-8')
 
 
@@ -69,14 +77,18 @@ def reject_symlinks(folder: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--profile', choices=['steeric', 'full'], default='steeric')
+    parser.add_argument('--profile', choices=['core', 'full'], default='core')
     parser.add_argument('--upstream-dir', type=Path, help='Use a trusted local checkout (useful offline)')
     args = parser.parse_args()
 
     manifest = json.loads((ROOT / 'selection.json').read_text())
     skills = manifest['profiles'][args.profile]['skills']
+    descriptions = json.loads((ROOT / 'skill-descriptions.json').read_text(encoding='utf-8'))
+    undefined = sorted(set(skills) - set(descriptions))
+    if undefined:
+        raise ValueError(f'Missing descriptions for: {undefined}')
     source = manifest['source']
-    with tempfile.TemporaryDirectory(prefix='steeric-marketing-') as td:
+    with tempfile.TemporaryDirectory(prefix='marketing-skills-') as td:
         checkout = args.upstream_dir.resolve() if args.upstream_dir else Path(td) / 'upstream'
         if not args.upstream_dir:
             print(f"Fetching {source['repository']} at {source['commit']}", flush=True)
@@ -100,7 +112,7 @@ def main() -> int:
             dest = staging / name
             shutil.copytree(original, dest)
             patch_claude_frontmatter(dest / 'SKILL.md')
-            patch_codex_metadata(dest / 'agents' / 'openai.yaml', name)
+            patch_codex_metadata(dest / 'agents' / 'openai.yaml', name, descriptions)
         # Do not leave a half-updated skill library if the source was incomplete.
         vendor = ROOT / 'vendor'
         vendor.mkdir(exist_ok=True)

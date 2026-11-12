@@ -1,5 +1,5 @@
 interface:
-  display_name: "Analytics"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Marketing Analytics"
+  short_description: "Define events, KPIs, and reliable measurement"
 policy:
   allow_implicit_invocation: false

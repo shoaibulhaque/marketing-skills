@@ -1,5 +1,5 @@
 interface:
-  display_name: "Ab Testing"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "A/B Testing"
+  short_description: "Design experiments and interpret test results"
 policy:
   allow_implicit_invocation: false

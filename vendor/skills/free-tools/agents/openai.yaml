@@ -1,5 +1,5 @@
 interface:
   display_name: "Free Tools"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Build useful free tools as acquisition channels"
 policy:
   allow_implicit_invocation: false

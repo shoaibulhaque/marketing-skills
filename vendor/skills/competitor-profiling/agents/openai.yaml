@@ -1,5 +1,5 @@
 interface:
   display_name: "Competitor Profiling"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Research competitors using verifiable evidence"
 policy:
   allow_implicit_invocation: false

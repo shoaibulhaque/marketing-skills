@@ -1,5 +1,5 @@
 interface:
   display_name: "Offers"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Design stronger, credible customer offers"
 policy:
   allow_implicit_invocation: false

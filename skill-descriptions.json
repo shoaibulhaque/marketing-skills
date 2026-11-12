@@ -1,0 +1,214 @@
+{
+  "ab-testing": {
+    "display_name": "A/B Testing",
+    "short_description": "Design experiments and interpret test results"
+  },
+  "ad-creative": {
+    "display_name": "Ad Creative",
+    "short_description": "Develop and evaluate advertising creative"
+  },
+  "ads": {
+    "display_name": "Paid Advertising",
+    "short_description": "Plan and improve paid advertising campaigns"
+  },
+  "ai-seo": {
+    "display_name": "AI Search Visibility",
+    "short_description": "Improve discoverability in AI search answers"
+  },
+  "analytics": {
+    "display_name": "Marketing Analytics",
+    "short_description": "Define events, KPIs, and reliable measurement"
+  },
+  "aso": {
+    "display_name": "App Store Optimization",
+    "short_description": "Improve app listings and store discoverability"
+  },
+  "attribution": {
+    "display_name": "Marketing Attribution",
+    "short_description": "Evaluate how channels contribute to revenue"
+  },
+  "churn-prevention": {
+    "display_name": "Churn Prevention",
+    "short_description": "Reduce cancellations and customer attrition"
+  },
+  "co-marketing": {
+    "display_name": "Co-Marketing",
+    "short_description": "Plan relevant partnerships and joint campaigns"
+  },
+  "cold-email": {
+    "display_name": "Cold Email",
+    "short_description": "Write researched, compliant B2B outreach"
+  },
+  "community-marketing": {
+    "display_name": "Community Marketing",
+    "short_description": "Grow and engage a relevant community"
+  },
+  "competitor-profiling": {
+    "display_name": "Competitor Profiling",
+    "short_description": "Research competitors using verifiable evidence"
+  },
+  "competitors": {
+    "display_name": "Competitor Comparisons",
+    "short_description": "Create fair comparison and alternative pages"
+  },
+  "content-strategy": {
+    "display_name": "Content Strategy",
+    "short_description": "Plan useful content around audience demand"
+  },
+  "conversion-tracking": {
+    "display_name": "Conversion Tracking",
+    "short_description": "Implement and verify conversion events"
+  },
+  "copy-editing": {
+    "display_name": "Copy Editing",
+    "short_description": "Improve clarity, voice, and persuasiveness"
+  },
+  "copywriting": {
+    "display_name": "Copywriting",
+    "short_description": "Write effective website and campaign copy"
+  },
+  "cro": {
+    "display_name": "Conversion Optimization",
+    "short_description": "Improve page and form conversion journeys"
+  },
+  "customer-research": {
+    "display_name": "Customer Research",
+    "short_description": "Study customer needs, language, and behavior"
+  },
+  "directory-submissions": {
+    "display_name": "Directory Submissions",
+    "short_description": "Choose relevant directories and submit listings"
+  },
+  "emails": {
+    "display_name": "Lifecycle Email",
+    "short_description": "Plan and refine automated email sequences"
+  },
+  "events": {
+    "display_name": "Event Marketing",
+    "short_description": "Plan and measure webinars and live events"
+  },
+  "free-tools": {
+    "display_name": "Free Tools",
+    "short_description": "Build useful free tools as acquisition channels"
+  },
+  "image": {
+    "display_name": "Marketing Imagery",
+    "short_description": "Plan, evaluate, and optimize marketing visuals"
+  },
+  "influencer-marketing": {
+    "display_name": "Influencer Marketing",
+    "short_description": "Evaluate and manage creator partnerships"
+  },
+  "launch": {
+    "display_name": "Launch Planning",
+    "short_description": "Plan launches, announcements, and distribution"
+  },
+  "lead-magnets": {
+    "display_name": "Lead Magnets",
+    "short_description": "Create valuable resources for lead generation"
+  },
+  "link-building": {
+    "display_name": "Link Building",
+    "short_description": "Earn relevant backlinks and editorial mentions"
+  },
+  "marketing-council": {
+    "display_name": "Marketing Council",
+    "short_description": "Evaluate decisions through multiple expert lenses"
+  },
+  "marketing-ideas": {
+    "display_name": "Marketing Ideas",
+    "short_description": "Find and prioritize practical growth experiments"
+  },
+  "marketing-loops": {
+    "display_name": "Marketing Loops",
+    "short_description": "Design measurable recurring marketing workflows"
+  },
+  "marketing-plan": {
+    "display_name": "Marketing Planning",
+    "short_description": "Build evidence-based go-to-market plans"
+  },
+  "marketing-psychology": {
+    "display_name": "Marketing Psychology",
+    "short_description": "Apply behavioral principles responsibly"
+  },
+  "offers": {
+    "display_name": "Offers",
+    "short_description": "Design stronger, credible customer offers"
+  },
+  "onboarding": {
+    "display_name": "Onboarding",
+    "short_description": "Improve activation and first-use experiences"
+  },
+  "paywalls": {
+    "display_name": "Paywalls",
+    "short_description": "Optimize upgrade prompts and monetization flows"
+  },
+  "popups": {
+    "display_name": "Popups",
+    "short_description": "Review popups and on-page conversion prompts"
+  },
+  "pricing": {
+    "display_name": "Pricing",
+    "short_description": "Develop value-based pricing and packaging"
+  },
+  "product-marketing": {
+    "display_name": "Product Marketing",
+    "short_description": "Clarify audience, positioning, and brand voice"
+  },
+  "programmatic-seo": {
+    "display_name": "Programmatic SEO",
+    "short_description": "Plan scalable, useful search landing pages"
+  },
+  "prospecting": {
+    "display_name": "Prospecting",
+    "short_description": "Find and qualify relevant B2B prospects"
+  },
+  "public-relations": {
+    "display_name": "Public Relations",
+    "short_description": "Develop credible stories and media outreach"
+  },
+  "referrals": {
+    "display_name": "Referral Marketing",
+    "short_description": "Design referral and word-of-mouth programs"
+  },
+  "reverse-engineer-marketing": {
+    "display_name": "Marketing Teardowns",
+    "short_description": "Analyze competitor growth and distribution"
+  },
+  "revops": {
+    "display_name": "Revenue Operations",
+    "short_description": "Define lead lifecycle and sales handoffs"
+  },
+  "sales-enablement": {
+    "display_name": "Sales Enablement",
+    "short_description": "Create evidence-based sales support materials"
+  },
+  "schema": {
+    "display_name": "Structured Data",
+    "short_description": "Implement and validate JSON-LD schema markup"
+  },
+  "seo-audit": {
+    "display_name": "SEO Audit",
+    "short_description": "Audit indexing, technical SEO, and page quality"
+  },
+  "signup": {
+    "display_name": "Signup Optimization",
+    "short_description": "Reduce friction in registration and signup"
+  },
+  "site-architecture": {
+    "display_name": "Site Architecture",
+    "short_description": "Plan navigation, URLs, and internal linking"
+  },
+  "sms": {
+    "display_name": "SMS Marketing",
+    "short_description": "Plan permission-based mobile messaging"
+  },
+  "social": {
+    "display_name": "Social Content",
+    "short_description": "Plan and refine organic social content"
+  },
+  "video": {
+    "display_name": "Marketing Video",
+    "short_description": "Plan video concepts, scripts, and distribution"
+  }
+}

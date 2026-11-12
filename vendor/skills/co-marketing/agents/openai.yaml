@@ -1,5 +1,5 @@
 interface:
-  display_name: "Co Marketing"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Co-Marketing"
+  short_description: "Plan relevant partnerships and joint campaigns"
 policy:
   allow_implicit_invocation: false

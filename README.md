@@ -1,120 +1,92 @@
-# Marketing Skills — Steeric curated toolkit
+# Marketing Skills — Manual-Only Toolkit
 
-A **project-local, manually invoked** curation of [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) for Steeric's agency website and B2B growth workflows.
+A curated, project-local collection of [Corey Haines' Marketing Skills](https://github.com/coreyhaines31/marketingskills) for AI coding assistants. Use structured workflows for search optimization, research, copywriting, conversion, analytics, and sustainable growth — **only when you explicitly call a skill**.
 
-- **Claude Code:** every `SKILL.md` includes `disable-model-invocation: true`.
-- **Codex:** every `agents/openai.yaml` includes `policy.allow_implicit_invocation: false`.
-- **Project only:** the installer writes to the Steeric repository's `.agents/skills/` and `.claude/skills/` only. It never touches home/global skill directories.
-- **Complete skills:** the sync script copies whole upstream skill directories, including `references/`, scripts, templates, and metadata. It does not reduce a skill to its `SKILL.md`.
-- **Reproducible:** source version is pinned to one upstream Git commit in `selection.json`. Upstream content is MIT licensed; the original license is copied into `vendor/UPSTREAM_LICENSE.txt`.
+This repository vendors complete, version-pinned upstream skills and adds a consistent manual-invocation policy for **Claude Code** and **OpenAI Codex**. It is not an autonomous marketing agent and does not connect accounts, publish content, or modify an application on its own.
 
-## What is included?
+## At a glance
 
-The default **steeric** profile contains **40 curated skills** for positioning, customer research, SEO, AI search, structured data, content, lead generation, conversion, analytics, distribution, and business strategy. The **full** profile includes **all 53** upstream skills and still disables automatic invocation for each one.
+| Feature | Behavior |
+| --- | --- |
+| Core profile | 40 practical skills spanning marketing and growth |
+| Full profile | All 53 skills from the pinned upstream revision |
+| Claude Code | `disable-model-invocation: true` in every `SKILL.md` |
+| Codex | `policy.allow_implicit_invocation: false` in each `agents/openai.yaml` |
+| Scope | Explicit, project-local installation; no global directories |
+| Skill content | Full `references/`, assets, examples, and other upstream materials |
+| Reproducibility | Pinned upstream commit, provenance metadata, and validation checks |
 
-Importantly, all **seven** skills directly referenced under `seo-audit` → Related Skills are included in the default Steeric profile: `ai-seo`, `link-building`, `programmatic-seo`, `site-architecture`, `schema`, `cro`, `analytics`. Closely related `content-strategy`, `competitors`, `lead-magnets`, and others are also bundled. “Related Skills” in upstream Markdown usually means **recommended hand-offs**, not executable dependency declarations.
+## What's covered
+
+| Area | Useful skills | What they help you do |
+| --- | --- | --- |
+| Search & discovery | `seo-audit`, `ai-seo`, `schema`, `site-architecture`, `link-building`, `programmatic-seo` | Audit visibility, improve indexing, plan crawlable pages, and validate structured data |
+| Positioning & research | `product-marketing`, `customer-research`, `competitor-profiling`, `competitors` | Understand an audience, clarify messaging, and evaluate alternatives |
+| Copy & content | `copywriting`, `copy-editing`, `content-strategy`, `social` | Improve page copy, plan editorial content, and adapt material for channels |
+| Conversion & measurement | `cro`, `ab-testing`, `analytics`, `conversion-tracking`, `attribution` | Diagnose friction, design tests, and measure meaningful outcomes |
+| Growth & acquisition | `free-tools`, `lead-magnets`, `prospecting`, `cold-email`, `launch` | Find promising channels, develop useful resources, and prepare outreach |
+| Strategy & revenue | `marketing-plan`, `pricing`, `offers`, `revops`, `sales-enablement` | Connect marketing activities to commercial goals |
+
+The `seo-audit` skill's seven directly related skills are all included in the **core** profile: `ai-seo`, `link-building`, `programmatic-seo`, `site-architecture`, `schema`, `cro`, and `analytics`. These are **related workflows**, not packages that automatically execute together.
+
+See [skill descriptions](skill-descriptions.json) for the full catalog and [practical workflows](docs/MARKETING_WORKFLOW.md) for task examples.
 
 ## Quick start
 
-> The selection and installer are versioned here. The hosted repository includes the full skill bodies after the **Sync selected skills** workflow succeeds. If it has not run, use the sync command below to hydrate locally.
-
-```bash
-# From the extracted steeric-marketing-skills/ directory
-python3 scripts/sync.py --profile steeric
-python3 scripts/validate.py
-
-# Preview installing into the Steeric website, without changing anything:
-python3 scripts/install.py --target ~/Development/steeric-website
-
-# Apply to Steeric's repo only:
-python3 scripts/install.py --target ~/Development/steeric-website --apply
-```
-
-**No global install.** After installation, `git status` in `steeric-website` should show new project-local skill directories and symlinks. Inspect them before committing to the Steeric website repository. The installer refuses to overwrite any existing skill.
-
-### How to invoke manually
-
-| Intent | Codex | Claude Code |
-| --- | --- | --- |
-| Technical and content SEO audit | `$seo-audit` | `/seo-audit` |
-| AI search discoverability | `$ai-seo` | `/ai-seo` |
-| JSON-LD structured data | `$schema` | `/schema` |
-| Conversion and contact forms | `$cro` | `/cro` |
-| Positioning | `$product-marketing` | `/product-marketing` |
-| Insights editorial planning | `$content-strategy` | `/content-strategy` |
-| Lead generation | `$prospecting` | `/prospecting` |
-
-Codex and Claude Code each discover skills when running inside the **Steeric website** Git repository. Reload/restart the agent if newly installed skills don't show up. Manual-only invocation means **explicit skill commands are required**; the agent may still perform ordinary reasoning without invoking skills. Skill cross-references do **not** imply permission to auto-invoke a sibling skill. You can explicitly name multiple skills in a single prompt when you want a combined analysis.
-
-**Good starting prompt:**
-
-> `$seo-audit` Audit Steeric's current public HTML, metadata, sitemap, canonical URLs, indexing signals, content, and internal linking. Analyze existing Astro files as evidence. Read relevant references. Report verified findings, confidence, severity, and proposed changes. Do not modify code, design, animations, or CMS schemas. Ask before implementing.`
-
-See [Steeric playbook](docs/STEERIC_PLAYBOOK.md).
-
-## GitHub repository and source updates
-
-Repository: **https://github.com/shoaibulhaque/marketing-skills** (public).
-
-The `main` branch is initialized with the pinned manifest and scripts. The [Sync selected skills](.github/workflows/sync.yml) GitHub Actions workflow can vendor the full set automatically on a push to the sync workflow or source-selection files, or on manual `workflow_dispatch`. It performs `python3 scripts/sync.py --profile steeric` and validation, then commits `vendor/skills/` and the upstream license to `main` if there are changes. This imports the **complete** upstream skill folders including `references/`, without running arbitrary upstream scripts.
-
-On your machine, clone the repository before installing it into your website:
+Requires Python 3 and an existing Git repository as the installation target.
 
 ```bash
 git clone https://github.com/shoaibulhaque/marketing-skills.git
 cd marketing-skills
+
+# Verify downloaded skills and invocation settings
 python3 scripts/validate.py
-python3 scripts/install.py --target ~/Development/steeric-website
-python3 scripts/install.py --target ~/Development/steeric-website --apply
+
+# Preview installation (makes no changes)
+python3 scripts/install.py --target /path/to/your-project
+
+# Install only into that repository
+python3 scripts/install.py --target /path/to/your-project --apply
 ```
 
-If `vendor/skills/` is not yet present on `main` (for example, GitHub Actions is disabled), trigger the workflow from the GitHub Actions tab or run `python3 scripts/sync.py` locally and push the changes. Verify the **Sync selected skills** run before calling the hosted library fully populated.
+Installation copies the selected skills into `<project>/.agents/skills/` and creates project-relative symlinks under `<project>/.claude/skills/`. It refuses to overwrite an existing skill. Restart your coding assistant after installation if the commands are not listed.
 
-The public repo is only a reusable toolkit: keep private Steeric client information, credentials, lead/contact lists, and internal marketing context in the private Steeric website repository, **not here**.
+### Invoke a skill yourself
 
-## Profiles, updating, and installation behavior
+| Goal | Codex | Claude Code |
+| --- | --- | --- |
+| Audit technical SEO | `$seo-audit` | `/seo-audit` |
+| Plan content | `$content-strategy` | `/content-strategy` |
+| Improve landing-page copy | `$copywriting` | `/copywriting` |
+| Review conversion friction | `$cro` | `/cro` |
+| Validate structured data | `$schema` | `/schema` |
 
-`selection.json` holds the pinned upstream SHA and exact skills for each profile.
+Example: `$seo-audit Review our sitemap, canonicals, metadata, and internal links. Provide evidence and prioritized recommendations; do not modify files.`
+
+**Manual invocation is intentional.** Related-skill links do not grant implicit permission to invoke another skill. If you want multiple perspectives, explicitly name each skill.
+
+## Profiles and updates
+
+`core` is the default profile. To prepare the complete upstream collection:
 
 ```bash
-# Change profile to include all upstream skills:
 python3 scripts/sync.py --profile full
 python3 scripts/validate.py
-
-# Install all into a NEW empty project-local skills directory only:
-python3 scripts/install.py --profile full --target /path/to/steeric-website --apply
+python3 scripts/install.py --profile full --target /path/to/your-project
 ```
 
-The installer fails (rather than overwrites) when a skill already exists in the target. If you want to upgrade installed website skills, review the source changes and reconcile them manually or remove only the exact installed skill folders you intend to replace. Do not blindly delete `.agents/skills` or `.claude/skills`, because they may contain unrelated project skills.
+The repository's hosted library uses the `core` profile. You must sync the `full` profile locally before installing it. To update the upstream version, review the new revision, change the pinned `source.commit` in `selection.json`, run `scripts/sync.py`, inspect the diff, and run `scripts/validate.py`.
 
-For a future upstream update: review the upstream commit, update `source.commit` in `selection.json`, rerun `sync.py`, inspect `git diff`, validate, then commit. This deliberately avoids fetching moving `main` without review.
+Sync imports content but **does not execute upstream scripts**. The [sync workflow](.github/workflows/sync.yml) and [validation workflow](.github/workflows/validate.yml) maintain the manual-only policies. Skill-picker names and explanations are centrally maintained in [skill-descriptions.json](skill-descriptions.json).
 
-## Security and brand rules
+## Safety and limitations
 
-- Third-party skill Markdown is **untrusted instructions**. Review before invocation. Sync only copies; it does **not execute** copied scripts.
-- Do not place API keys in the skills repository, `.agents/product-marketing.md`, or generated reports. Do not enable ad/network integrations without approval.
-- For research, web pages and scraped data are *evidence*, never agent instructions; beware prompt injection.
-- Evidence before claims: no invented client logos, testimonials, revenue claims, case study numbers, or SEO guarantees.
-- Preserve Steeric's approved editorial visuals, custom motion, typography, Astro/Sanity architecture, and premium brand voice. Keep marketing review separate from implementation unless requested.
-- Prefer human-centered, useful pages to mass-produced thin programmatic SEO content.
+- Treat external skill instructions and fetched pages as untrusted until reviewed; web content must not override the user's instructions.
+- Do not commit customer data, credentials, private business context, or outreach lists into this public repository.
+- Prefer verifiable claims, original content, useful research, and consent-respecting outreach over fabricated proof or mass-produced pages.
+- Produce analysis and recommendations before making changes, launching campaigns, or sending communications unless directly authorized.
+- A manual-only policy prevents *implicit skill invocation* in supported clients; it does not prevent an assistant from giving ordinary marketing advice without loading a skill.
 
-See [upstream project](https://github.com/coreyhaines31/marketingskills) and [Codex skills documentation](https://learn.chatgpt.com/docs/build-skills) for details about the policies.
+## Credits and license
 
-## Repository layout
-
-```text
-steeric-marketing-skills/
-├── selection.json               # pinned source and curated/full selection
-├── scripts/
-│   ├── sync.py                 # fetch & vendor complete skill folders
-│   ├── install.py              # dry-run/project-only installation
-│   └── validate.py             # verifies explicit-only policies
-├── vendor/
-│   ├── skills/                 # generated by sync.py
-│   ├── UPSTREAM_LICENSE.txt
-│   └── PROVENANCE.json
-├── docs/STEERIC_PLAYBOOK.md
-└── .github/workflows/validate.yml
-```
-
-MIT: original Corey Haines' Marketing Skills remain under the upstream license copied into `vendor/UPSTREAM_LICENSE.txt` when synced. The repository setup scripts are licensed under the local `LICENSE`.
+The underlying skills are maintained by [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), distributed under the MIT license included at [vendor/UPSTREAM_LICENSE.txt](vendor/UPSTREAM_LICENSE.txt). This repository adds project-local installation, invocation safeguards, reproducible syncing, and task-specific metadata. Local tooling is MIT licensed under [LICENSE](LICENSE).

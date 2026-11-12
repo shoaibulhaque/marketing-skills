@@ -1,5 +1,5 @@
 interface:
-  display_name: "Signup"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "Signup Optimization"
+  short_description: "Reduce friction in registration and signup"
 policy:
   allow_implicit_invocation: false

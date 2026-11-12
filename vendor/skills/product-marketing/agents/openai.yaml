@@ -1,5 +1,5 @@
 interface:
   display_name: "Product Marketing"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Clarify audience, positioning, and brand voice"
 policy:
   allow_implicit_invocation: false

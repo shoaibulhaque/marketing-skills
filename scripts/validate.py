@@ -12,13 +12,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     manifest = json.loads((ROOT / 'selection.json').read_text())
+    catalog = json.loads((ROOT / 'skill-descriptions.json').read_text(encoding='utf-8'))
     vendor = ROOT / 'vendor' / 'skills'
     if not vendor.is_dir():
         print('ERROR: no vendored skills; first run scripts/sync.py', file=sys.stderr)
         return 2
     found = sorted(x.name for x in vendor.iterdir() if x.is_dir())
     errors = []
-    expected = sorted(manifest['profiles']['steeric']['skills'])
+    expected = sorted(manifest['profiles']['core']['skills'])
     if set(found) != set(expected) and set(found) != set(manifest['profiles']['full']['skills']):
         errors.append('Vendored skills do not match either declared profile')
     for name in found:
@@ -36,6 +37,14 @@ def main() -> int:
             errors.append(f'{name}: Claude automatic invocation not disabled')
         if not c.exists() or not re.search(r'(?m)^  allow_implicit_invocation:\s*false\s*$', c.read_text(encoding='utf-8')):
             errors.append(f'{name}: Codex implicit invocation not disabled')
+        if name not in catalog:
+            errors.append(f'{name}: missing catalog entry')
+        else:
+            meta = c.read_text(encoding='utf-8') if c.exists() else ''
+            for key in ('display_name', 'short_description'):
+                value = catalog[name][key]
+                if f'  {key}: {json.dumps(value, ensure_ascii=False)}' not in meta:
+                    errors.append(f'{name}: outdated Codex {key}')
         # Check relative references only; external URLs are intentionally omitted.
         for match in re.finditer(r'\]\(((?:\.?\.?/)?references/[^)#\s]+(?:\.md|\.json))\)', s):
             relative = match.group(1)

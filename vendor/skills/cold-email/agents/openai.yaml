@@ -1,5 +1,5 @@
 interface:
   display_name: "Cold Email"
-  short_description: "Manual-only Steeric marketing skill"
+  short_description: "Write researched, compliant B2B outreach"
 policy:
   allow_implicit_invocation: false

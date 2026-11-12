@@ -1,5 +1,5 @@
 interface:
-  display_name: "Ai Seo"
-  short_description: "Manual-only Steeric marketing skill"
+  display_name: "AI Search Visibility"
+  short_description: "Improve discoverability in AI search answers"
 policy:
   allow_implicit_invocation: false
