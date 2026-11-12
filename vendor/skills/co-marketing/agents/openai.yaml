@@ -1,0 +1,5 @@
+interface:
+  display_name: "Co Marketing"
+  short_description: "Manual-only Steeric marketing skill"
+policy:
+  allow_implicit_invocation: false
